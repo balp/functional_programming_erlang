@@ -1,11 +1,17 @@
 -module(first).
--export([double/1,mult/2,area/3]).
+-export([double/1,treble/1,mult/2,area/3,square/1]).
 
 mult(X,Y) ->
     X*Y.
 
 double(X) ->
     mult(X,2).
+
+square(X) ->
+    mult(X,X).
+
+treble(X) ->
+    mult(X,3).
 
 area(A,B,C) ->
     S = (A+B+C)/2,
