@@ -1,3 +1,7 @@
+%%%
+%
+% https://www.futurelearn.com/courses/functional-programming-erlang/1/assignments/161825/
+%
 -module(ex1_24).
 -export([perimiter/1,area/1,enclose/1,bits/1,bits_tail/1]).
 -include_lib("eunit/include/eunit.hrl").
@@ -50,14 +54,25 @@ bits(N) ->
 bits_tail(N) ->
     bits_tail(N,0).
 
-bits_tail(0,A) ->
-    A;
-bits_tail(N,A) ->
-    bits_tail(N div 2, A + N rem 2).
+bits_tail(0,Accumulator) ->
+    Accumulator;
+bits_tail(N,Accumulator) ->
+    bits_tail(N div 2, Accumulator + N rem 2).
 
+% In this case I prefer the tail recursion. For me simple
+% recursion vs. tail recursion is about readability versus
+% efficiency.
+%
+% When we compare the tail recursive call in this case:
+%   bits_tail(N div 2, Accumulator + N rem 2).
+% it's very simular to the simple recursion:
+%   bits(N div 2) + N rem 2.
+% so the readability of both versions will be simular, this
+% makes the tail recursive winning on being a bit more effective
+% even if i guess in most practical terms this will be a minimal
+% gain in this examples.
 
-% Tests to see the solutions are sane.
-
+%%% Tests to see the solutions are sane.
 %
 perimiter_test_() ->
     [?_assert(perimiter({triangle,3,4}) =:= 12.0),
