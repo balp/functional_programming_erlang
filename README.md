@@ -10,4 +10,4 @@ https://www.futurelearn.com/courses/functional-programming-erlang/
 My tests, notes and exersices
 -----------------------------
 
-Much of them in files called ex<week>_<part>.erl
+Much of them in files called ex&lt;week&gt;_&lt;part&gt;.erl
